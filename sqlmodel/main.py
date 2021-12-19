@@ -151,7 +151,8 @@ def Field(
     primary_key: bool = False,
     foreign_key: Optional[Any] = None,
     nullable: Union[bool, UndefinedType] = Undefined,
-    index: Union[bool, UndefinedType] = Undefined,
+    # NOTE: Undefined not propagating well to postgres - explicitly set False
+    index: Union[bool, UndefinedType] = False,
     sa_column: Union[Column, UndefinedType] = Undefined,  # type: ignore
     sa_column_args: Union[Sequence[Any], UndefinedType] = Undefined,
     sa_column_kwargs: Union[Mapping[str, Any], UndefinedType] = Undefined,
